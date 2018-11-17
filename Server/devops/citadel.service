@@ -1,0 +1,12 @@
+[Unit]
+Description=Citadel App
+
+[Service]
+ExecStart=/var/www/citadel/server/start.sh
+Restart=always
+User=ramon54321
+Group=nogroup
+WorkingDirectory=/var/www/citadel/server
+
+[Install]
+WantedBy=multi-user.target

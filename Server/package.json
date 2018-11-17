@@ -5,13 +5,14 @@
     "compile": "yarn run lint && tsc",
     "serve": "node dist/server.js",
     "lint": "tslint -t stylish -p tsconfig.json",
+    "clean": "rm -rf ./dist/*",
     "start:production": "RUN_ENV=production yarn run compile:production && yarn run serve:production",
     "compile:production": "RUN_ENV=production yarn run lint && tsc",
     "serve:production": "RUN_ENV=production node dist/server.js"
   },
   "dependencies": {
     "express": "^4.16.4",
-    "modern-syslog": "^1.1.4"
+    "syslog-client": "^1.1.1"
   },
   "devDependencies": {
     "@types/express": "^4.16.0",

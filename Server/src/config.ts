@@ -8,11 +8,11 @@ const development = {
   ...general,
   port: 12000,
   syslog: false,
-};
+}
 
 const production = {
   ...general,
-  port: 80,
+  port: 3000,
   syslog: true,
 }
 
