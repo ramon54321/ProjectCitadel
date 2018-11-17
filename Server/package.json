@@ -1,0 +1,24 @@
+{
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn run compile && yarn run serve",
+    "compile": "yarn run lint && tsc",
+    "serve": "node dist/server.js",
+    "lint": "tslint -t stylish -p tsconfig.json",
+    "start:production": "RUN_ENV=production yarn run compile:production && yarn run serve:production",
+    "compile:production": "RUN_ENV=production yarn run lint && tsc",
+    "serve:production": "RUN_ENV=production node dist/server.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "modern-syslog": "^1.1.4"
+  },
+  "devDependencies": {
+    "@types/express": "^4.16.0",
+    "@types/node": "^10.12.8",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.16.0",
+    "tslint-config-standard": "^8.0.1",
+    "typescript": "^3.1.6"
+  }
+}
