@@ -8,7 +8,7 @@
 yarn run clean
 
 # Build local production
-yarn run compile:production
+yarn run production:compile
 
 # Remove remote folder
 ssh 35.228.184.142 'rm -rf /var/www/citadel/server/*'

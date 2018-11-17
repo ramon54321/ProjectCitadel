@@ -11,4 +11,4 @@ PATH=/home/ramon54321/.nvm/versions/node/v11.1.0/bin/:$PATH
 yarn install
 
 # Run Dist
-yarn serve:production
+yarn production:serve
