@@ -1,22 +1,11 @@
-import config from './config'
-import * as syslog from 'syslog-client'
-
-const syslogClient = syslog.createClient('127.0.0.1', {
-  transport: syslog.Transport.Udp
-})
-
 export enum LogLevel {
-  Trace,
-  Info,
-  Warning,
-  Error,
-  Fatal,
+  Trace = 'TRACE',
+  Info = 'INFO',
+  Warning = 'WARNING',
+  Error = 'ERROR',
+  Fatal = 'FATAL',
 }
 
-export function log(message: string, _level: LogLevel = LogLevel.Info) {
-  if (config.syslog) {
-    syslogClient.log(message, error => console.log(error))
-  } else {
-    console.log(message)
-  }
+export function log(message: string, level: LogLevel = LogLevel.Info) {
+  console.log(`[${level}] ${message}`)
 }

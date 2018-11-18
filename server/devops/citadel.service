@@ -7,6 +7,9 @@ Restart=always
 User=ramon54321
 Group=nogroup
 WorkingDirectory=/var/www/citadel/server
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=citadel
 
 [Install]
 WantedBy=multi-user.target

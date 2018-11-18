@@ -7,13 +7,11 @@ const general = {
 const development = {
   ...general,
   port: 12000,
-  syslog: false,
 }
 
 const production = {
   ...general,
   port: 3000,
-  syslog: true,
 }
 
 const config = {
