@@ -1,10 +1,10 @@
 import * as express from 'express'
-import { log } from './logger'
+import { logPage } from './logger'
 
 const pageRouter = express.Router()
 
 pageRouter.use((_req, _res, next) => {
-  log('[PAGE] Received Request')
+  logPage('[PAGE] Received Request')
   next()
 })
 

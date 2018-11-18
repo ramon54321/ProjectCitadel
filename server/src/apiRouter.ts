@@ -1,10 +1,10 @@
 import * as express from 'express'
-import { log } from './logger'
+import { logAPI } from './logger'
 
 const apiRouter = express.Router()
 
 apiRouter.use((_req, _res, next) => {
-  log('[API] Received Request')
+  logAPI('[API] Received Request')
   next()
 })
 
