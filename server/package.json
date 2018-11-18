@@ -13,7 +13,8 @@
     "devops:deploy": "./devops/scripts/deploy.sh",
     "devops:update:nginx": "./devops/scripts/update_nginx_config.sh",
     "devops:update:syslog": "./devops/scripts/update_syslog_config.sh",
-    "devops:update:service": "./devops/scripts/update_service.sh"
+    "devops:update:service": "./devops/scripts/update_service.sh",
+    "database": "./database/run.sh"
   },
   "dependencies": {
     "express": "^4.16.4"

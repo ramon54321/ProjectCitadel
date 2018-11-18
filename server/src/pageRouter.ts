@@ -4,7 +4,7 @@ import { logPage } from './logger'
 const pageRouter = express.Router()
 
 pageRouter.use((_req, _res, next) => {
-  logPage('[PAGE] Received Request')
+  logPage('Received Request')
   next()
 })
 

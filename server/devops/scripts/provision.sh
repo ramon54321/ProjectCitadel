@@ -29,6 +29,18 @@ sudo chown ramon54321:ramon54321 /var/www/citadel
 mkdir /var/www/citadel/client
 mkdir /var/www/citadel/server
 
+# Install Postgres
+sudo apt install postgresql-10
+
+# Enable Listening Postgres
+sudo sed -i "s/.*listen_addresses.*/listen_addresses = '*'/" /etc/postgresql/10/main/postgresql.conf
+
+echo 'host all all 0.0.0.0/0 md5' | sudo tee --append /etc/postgresql/10/main/pg_hba.conf
+echo 'host all all ::/0 md5' | sudo tee --append /etc/postgresql/10/main/pg_hba.conf
+
+# Restart Postgres
+sudo systemctl restart postgresql
+
 EOF
 
 # Copy NGINX Config

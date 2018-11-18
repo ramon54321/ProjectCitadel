@@ -4,7 +4,7 @@ import { logAPI } from './logger'
 const apiRouter = express.Router()
 
 apiRouter.use((_req, _res, next) => {
-  logAPI('[API] Received Request')
+  logAPI('Received Request')
   next()
 })
 
