@@ -1,4 +1,4 @@
-import { LogLevel } from "./logger";
+import { LogLevel } from './logger'
 
 export const configKey = process.env['RUN_ENV'] || 'development'
 
@@ -9,13 +9,13 @@ const general = {
 const development = {
   ...general,
   port: 12000,
-  logLevel: LogLevel.Trace
+  logLevel: LogLevel.Trace,
 }
 
 const production = {
   ...general,
   port: 3000,
-  logLevel: LogLevel.Info
+  logLevel: LogLevel.Info,
 }
 
 const config = {

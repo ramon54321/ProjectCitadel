@@ -15,17 +15,21 @@ levels[LogLevel.Warning] = 3
 levels[LogLevel.Info] = 2
 levels[LogLevel.Trace] = 1
 
-function log(message: string, logLevel: LogLevel = LogLevel.Info) {
+function _log(message: string, logLevel: LogLevel = LogLevel.Info) {
   const level = levels[logLevel]
   if (level >= levels[config.logLevel]) {
     console.log(`[${level}] ${message}`)
   }
 }
 
+export function log(message: string, logLevel: LogLevel = LogLevel.Info) {
+  _log(`[GENERAL] ${message}`, logLevel)
+}
+
 export function logAPI(message: string, logLevel: LogLevel = LogLevel.Info) {
-  log(`[API] ${message}`, logLevel)
+  _log(`[API] ${message}`, logLevel)
 }
 
 export function logPage(message: string, logLevel: LogLevel = LogLevel.Info) {
-  log(`[PAGE] ${message}`, logLevel)
+  _log(`[PAGE] ${message}`, logLevel)
 }

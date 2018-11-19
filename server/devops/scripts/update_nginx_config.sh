@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Break on Error
+set -e
+
 # Copy NGINX Config
 scp ./devops/nginx.conf 35.228.184.142:/home/ramon54321/nginx.conf
 ssh 35.228.184.142 << EOF

@@ -4,7 +4,13 @@
 # Run locally and provisions remote.
 #
 
+# Break on Error
+set -e
+
 ssh 35.228.184.142 << EOF
+
+# Break on Error
+set -e
 
 # Download nvm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
