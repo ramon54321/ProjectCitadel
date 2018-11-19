@@ -15,21 +15,26 @@ levels[LogLevel.Warning] = 3
 levels[LogLevel.Info] = 2
 levels[LogLevel.Trace] = 1
 
-function _log(message: string, logLevel: LogLevel = LogLevel.Info) {
+function _log(message: any, logLevel: LogLevel = LogLevel.Info, prefixes: string[] = []) {
   const level = levels[logLevel]
   if (level >= levels[config.logLevel]) {
-    console.log(`[${level}] ${message}`)
+    message = typeof message === 'object' ? '\n' + JSON.stringify(message, null, 2) : message
+    console.log(`[${logLevel}] ${prefixes.map(prefix => '[' + prefix + ']').join(' ')} ${message}`)
   }
 }
 
-export function log(message: string, logLevel: LogLevel = LogLevel.Info) {
-  _log(`[GENERAL] ${message}`, logLevel)
+export function log(message: any, logLevel: LogLevel = LogLevel.Info) {
+  _log(message, logLevel, ['GENERAL'])
 }
 
-export function logAPI(message: string, logLevel: LogLevel = LogLevel.Info) {
-  _log(`[API] ${message}`, logLevel)
+export function logAPI(message: any, logLevel: LogLevel = LogLevel.Info) {
+  _log(message, logLevel, ['API'])
 }
 
-export function logPage(message: string, logLevel: LogLevel = LogLevel.Info) {
-  _log(`[PAGE] ${message}`, logLevel)
+export function logPage(message: any, logLevel: LogLevel = LogLevel.Info) {
+  _log(message, logLevel, ['PAGE'])
+}
+
+export function logDatabase(message: any, logLevel: LogLevel = LogLevel.Info) {
+  _log(message, logLevel, ['DATABASE'])
 }

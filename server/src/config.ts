@@ -4,6 +4,11 @@ export const configKey = process.env['RUN_ENV'] || 'development'
 
 const general = {
   name: 'Project Citadel',
+  dbHost: process.env.DBHOST_PRODUCTION,
+  dbPort: process.env.DBPORT_PRODUCTION,
+  dbUser: process.env.DBUSER_PRODUCTION,
+  dbPassword: process.env.DBPASSWORD_PRODUCTION,
+  dbDatabase: process.env.DBDATABASE_PRODUCTION,
 }
 
 const development = {
