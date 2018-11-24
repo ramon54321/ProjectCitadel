@@ -8,7 +8,7 @@
 PATH=/home/ramon54321/.nvm/versions/node/v11.1.0/bin/:$PATH
 
 # Install Dependencies
-yarn install
+yarn install --production
 
 # Run Dist
 yarn production:serve

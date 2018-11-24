@@ -1,7 +1,9 @@
 import { Client } from 'pg'
-import { logDatabase, LogLevel } from './logger'
+import { logDatabase } from './logger/logger'
+
 import config from './config'
 import * as escape from 'pg-escape'
+import { LogLevel } from './logger/logLevel';
 
 const client = new Client({
   user: config.dbUser,
@@ -10,6 +12,7 @@ const client = new Client({
   password: config.dbPassword,
   port: config.dbPort,
 })
+
 client.connect(err => {
   if (err) {
     logDatabase(err, LogLevel.Fatal)

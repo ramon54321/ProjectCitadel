@@ -1,12 +1,5 @@
-import config from "./config";
-
-export enum LogLevel {
-  Trace = 'TRACE',
-  Info = 'INFO',
-  Warning = 'WARNING',
-  Error = 'ERROR',
-  Fatal = 'FATAL',
-}
+import config from '../config'
+import { LogLevel } from './logLevel';
 
 const levels = {}
 levels[LogLevel.Fatal] = 5
@@ -37,4 +30,8 @@ export function logPage(message: any, logLevel: LogLevel = LogLevel.Info) {
 
 export function logDatabase(message: any, logLevel: LogLevel = LogLevel.Info) {
   _log(message, logLevel, ['DATABASE'])
+}
+
+export function logPayments(message: any, logLevel: LogLevel = LogLevel.Info) {
+  _log(message, logLevel, ['PAYMENTS'])
 }

@@ -1,4 +1,5 @@
-import { LogLevel } from './logger'
+import { LogLevel } from "./logger/logLevel";
+
 
 export const configKey = process.env['RUN_ENV'] || 'development'
 
@@ -9,6 +10,7 @@ const general = {
   dbUser: process.env.DBUSER_PRODUCTION,
   dbPassword: process.env.DBPASSWORD_PRODUCTION,
   dbDatabase: process.env.DBDATABASE_PRODUCTION,
+  stripeApiKey: process.env.STRIPE_APIKEY_TEST,
 }
 
 const development = {

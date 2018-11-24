@@ -1,6 +1,7 @@
 import * as express from 'express'
-import { logAPI } from './logger'
+import { logAPI } from './logger/logger'
 import { getCard, postCard, WordType, Level } from './database'
+import { createCustomer } from './payment';
 
 const apiRouter = express.Router()
 
@@ -11,6 +12,14 @@ apiRouter.use((_req, _res, next) => {
 
 apiRouter.get('/hello', (_req, res, _next) => {
   res.send('Hello from API!')
+})
+
+apiRouter.post('/pay', async (req, res) => {
+  const token = req.body.stripeToken
+  const email = req.body.stripeEmail
+  logAPI(req.body)
+  const customer = await createCustomer(token, email)
+  res.send(customer)
 })
 
 apiRouter.get('/card/:id', async (req, res, _next) => {
