@@ -1,13 +1,16 @@
 {
   "license": "MIT",
   "scripts": {
-    "compile": "yarn run lint && webpack",
+    "compile": "./devops/scripts/compile_development.sh",
     "lint": "tslint -t stylish -p tsconfig.json",
     "clean": "rm -rf ./dist/*",
-    "production:compile": "RUN_ENV=production yarn run lint && webpack",
+    "production:compile": "./devops/scripts/compile_production.sh",
     "devops:deploy": "./devops/scripts/deploy.sh"
   },
   "devDependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-stripe-elements": "^2.0.1",
     "ts-loader": "^5.3.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.16.0",

@@ -9,6 +9,9 @@ pageRouter.use((_req, _res, next) => {
   next()
 })
 
+// TODO: Move static to subdirectory / router / nginx
+pageRouter.use(express.static(path.resolve('../client/dist')))
+
 pageRouter.get('/hello', (_req, res, _next) => {
   res.send('Hello!')
 })

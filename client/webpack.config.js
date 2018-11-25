@@ -1,10 +1,9 @@
 const path = require('path')
 
-module.exports = {
+const config = {
   entry: {
-    app: './src/app.ts',
+    app: './src/scripts/app.tsx',
   },
-  devtool: 'inline-source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].citadel.js',
@@ -24,4 +23,11 @@ module.exports = {
       },
     ],
   },
+}
+
+module.exports = (env, argv) => {
+  if (argv.mode === 'development') {
+    config.devtool = 'inline-source-map'
+  }
+  return config
 }
