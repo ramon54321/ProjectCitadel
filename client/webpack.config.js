@@ -2,10 +2,10 @@ const path = require('path')
 
 const config = {
   entry: {
-    app: './src/scripts/app.tsx',
+    app: './src/scripts/app/app.tsx',
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist/static'),
     filename: '[name].citadel.js',
   },
   resolve: {
