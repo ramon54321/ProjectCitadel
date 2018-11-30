@@ -27,6 +27,10 @@ npm install -g yarn
 # Install NGINX
 sudo apt install nginx -y
 
+# Install Certbot
+sudo add-apt-repository ppa:certbot/certbot -y
+sudo apt install certbot -y
+
 # Create folders
 sudo mkdir /var/www/citadel
 

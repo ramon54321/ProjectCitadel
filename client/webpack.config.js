@@ -2,7 +2,7 @@ const path = require('path')
 
 const config = {
   entry: {
-    app: './src/scripts/app/app.tsx',
+    app: './src/scripts/app/App.tsx',
   },
   output: {
     path: path.resolve(__dirname, 'dist/static'),

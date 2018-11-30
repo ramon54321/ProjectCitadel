@@ -25,6 +25,9 @@ scp ./package.json 35.228.184.142:/var/www/citadel/server/package.json
 # Copy yarn.lock
 scp ./yarn.lock 35.228.184.142:/var/www/citadel/server/yarn.lock
 
+# Copy .env
+scp ./.env 35.228.184.142:/var/www/citadel/server/.env
+
 # Copy start.sh
 scp ./start.sh 35.228.184.142:/var/www/citadel/server/start.sh
 

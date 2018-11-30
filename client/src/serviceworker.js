@@ -1,5 +1,5 @@
 const cacheName = 'citadelCache'
-const urlsToCache = ['/app', '/static/app.css', '/static/app.citadel.js']
+const urlsToCache = ['favicon.ico', '/app', '/static/app.css', '/static/app.citadel.js']
 
 self.addEventListener('install', function(event) {
   event.waitUntil(

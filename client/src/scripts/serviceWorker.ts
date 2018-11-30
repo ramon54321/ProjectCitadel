@@ -1,5 +1,7 @@
 import { logInfo, logError, logWarning } from './logger'
 
+// V2
+
 export function register() {
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
