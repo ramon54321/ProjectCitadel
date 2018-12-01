@@ -10,7 +10,13 @@ class Dashboard extends React.Component<DashboardProps> {
   }
 
   render() {
-    return <p>Dashboard</p>
+    return (
+      <React.Fragment>
+        <h2>Dashboard</h2>
+        <p>Daily words to learn!</p>
+        <small>Version 3</small>
+      </React.Fragment>
+    )
   }
 }
 

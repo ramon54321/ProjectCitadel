@@ -1,13 +1,13 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 // import { Elements, StripeProvider } from 'react-stripe-elements'
-import * as serviceWorker from '../serviceworker'
+import * as serviceWorkerClient from '../serviceWorkerClient'
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom'
 import Dashboard from './Dashboard'
 import Portal from './Portal'
 import AddToHomeScreen from './AddToHomescreen';
 
-serviceWorker.register()
+serviceWorkerClient.register()
 
 const App = () => {
   return (
