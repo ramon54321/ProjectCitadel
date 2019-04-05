@@ -2,10 +2,10 @@
 set -e
 
 # Lint
-yarn run lint
+npm run lint
 
 # Clean
-yarn run clean
+npm run clean
 
 # Compile with Development config
 webpack --mode development

@@ -2,10 +2,10 @@
 set -e
 
 # Lint
-yarn run lint
+npm run lint
 
 # Clean
-yarn run clean
+npm run clean
 
 # Compile with Production config
 webpack --mode production

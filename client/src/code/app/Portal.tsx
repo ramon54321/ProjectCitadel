@@ -10,7 +10,11 @@ class Portal extends React.Component<PortalProps> {
   }
 
   render() {
-    return <p>Portal</p>
+    return (
+      <React.Fragment>
+        <h2>Portal</h2>
+      </React.Fragment>
+    )
   }
 }
 

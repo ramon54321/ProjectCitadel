@@ -14,7 +14,7 @@ class Dashboard extends React.Component<DashboardProps> {
       <React.Fragment>
         <h2>Dashboard</h2>
         <p>Daily words to learn!</p>
-        <small>Version 3</small>
+        <p>Some of your words are...</p>
       </React.Fragment>
     )
   }
