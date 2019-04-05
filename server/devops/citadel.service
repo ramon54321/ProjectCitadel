@@ -2,13 +2,14 @@
 Description=Citadel App
 
 [Service]
+Environment=PATH=/home/ramon54321/.nvm/versions/node/v10.15.3/bin:/usr/local/bin
 ExecStart=/var/www/citadel/server/start.sh
-Restart=always
+Restart=never
 User=ramon54321
 Group=nogroup
 WorkingDirectory=/var/www/citadel/server
-StandardOutput=syslog
-StandardError=syslog
+StandardOutput=citadel
+StandardError=citadel
 SyslogIdentifier=citadel
 
 [Install]

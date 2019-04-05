@@ -15,7 +15,7 @@ const general = {
 
 const development = {
   ...general,
-  port: 12000,
+  port: 3000,
   logLevel: LogLevel.Trace,
 }
 

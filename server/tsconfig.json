@@ -7,7 +7,6 @@
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "sourceMap": true,
     "strictNullChecks": true,
     "target": "es6",
     "experimentalDecorators": true

@@ -3,7 +3,7 @@ import { logDatabase } from './logger/logger'
 
 import config from './config'
 import * as escape from 'pg-escape'
-import { LogLevel } from './logger/logLevel';
+import { LogLevel } from './logger/logLevel'
 
 const client = new Client({
   user: config.dbUser,
@@ -41,13 +41,13 @@ export enum Level {
 }
 
 export async function getCard(_id: number) {
-  const res = await client.query('SELECT * FROM cards')
+  const res = await client.query('SELECT * FROM card')
   logDatabase(res)
   return res.rows[0]
 }
 
 export async function postCard(card: any) {
-  const query = escape("INSERT INTO cards (data) VALUES (%Q)", JSON.stringify(card))
+  const query = escape('INSERT INTO card (data) VALUES (%Q)', JSON.stringify(card))
   const res = await client.query(query)
   logDatabase(res)
 }

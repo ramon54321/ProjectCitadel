@@ -6,4 +6,4 @@ There is a password file `.pgpass` located in the home directory of the developm
 The file has permissions `600`.
 
 ### Running Script
-A script can be run by running the `run.sh` script followed by the script name in the `scripts` folder. The `run.sh` script is called with `yarn database`.
+A script can be run by running the `run.sh` script followed by the script name in the `scripts` folder. The `run.sh` script is called with `npm run database`.

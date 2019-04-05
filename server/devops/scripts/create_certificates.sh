@@ -7,7 +7,7 @@
 # Break on Error
 set -e
 
-ssh 35.228.184.142 << EOF
+ssh 35.228.19.40 << EOF
 
 # Stop NGINX
 sudo systemctl stop nginx

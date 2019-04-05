@@ -4,8 +4,6 @@ import * as path from 'path'
 
 const pageRouter = express.Router()
 
-
-
 // TODO: Move static to subdirectory / router / nginx
 
 pageRouter.use('/static', (_req, _res, next) => {
@@ -29,7 +27,7 @@ pageRouter.get('/favicon.ico', (_req, res, _next) => {
 })
 
 pageRouter.get('/serviceworker', (_req, res, _next) => {
-  res.sendFile(path.resolve('../client/dist/serviceworker.js'))
+  res.sendFile(path.resolve('../client/dist/serviceWorker.js'))
 })
 
 pageRouter.get('/app*', (_req, res, _next) => {

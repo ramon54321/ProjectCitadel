@@ -7,7 +7,7 @@
 # Break on Error
 set -e
 
-ssh 35.228.184.142 << EOF
+ssh 35.228.19.40 << EOF
 
 # Break on Error
 set -e
@@ -19,13 +19,16 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | 
 source ~/.nvm/nvm.sh
 
 # Install Node
-nvm install 11.1.0
-
-# Install Yarn
-npm install -g yarn
+nvm install 10.15.3
 
 # Install NGINX
 sudo apt install nginx -y
+
+# Install Commons
+sudo apt-get install software-properties-common -y
+
+# Install Netcat
+sudo apt install netcat -y
 
 # Install Certbot
 sudo add-apt-repository ppa:certbot/certbot -y
@@ -40,7 +43,10 @@ mkdir /var/www/citadel/client
 mkdir /var/www/citadel/server
 
 # Install Postgres
-sudo apt install postgresql-10
+sudo sh -c "echo 'deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main' >> /etc/apt/sources.list.d/pgdg.list"
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+sudo apt update
+sudo apt install postgresql-10 -y
 
 # Enable Listening Postgres
 sudo sed -i "s/.*listen_addresses.*/listen_addresses = '*'/" /etc/postgresql/10/main/postgresql.conf
@@ -53,5 +59,8 @@ sudo systemctl restart postgresql
 
 EOF
 
+# Create Certificates
+./devops/scripts/create_certificates.sh
+
 # Copy NGINX Config
-./devops/update_nginx_config.sh
+./devops/scripts/update_nginx_config.sh

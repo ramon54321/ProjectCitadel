@@ -1,17 +1,16 @@
 {
   "license": "MIT",
   "scripts": {
-    "start": "yarn run compile && yarn run serve",
-    "compile": "yarn run lint && tsc",
+    "start": "npm run compile && npm run serve",
+    "compile": "npm run lint && tsc --sourceMap",
+    "compile:production": "RUN_ENV=production npm run lint && tsc",
     "serve": "node dist/server.js",
     "lint": "tslint -t stylish -p tsconfig.json",
     "clean": "rm -rf ./dist/*",
-    "production:start": "RUN_ENV=production yarn run production:compile && yarn run production:serve",
-    "production:compile": "RUN_ENV=production yarn run lint && tsc",
-    "production:serve": "RUN_ENV=production node dist/server.js",
     "devops:provision": "./devops/scripts/provision.sh",
     "devops:deploy": "./devops/scripts/deploy.sh",
     "devops:update:nginx": "./devops/scripts/update_nginx_config.sh",
+    "devops:update:nginx-auth": "./devops/scripts/update_nginx_authentication.sh",
     "devops:update:syslog": "./devops/scripts/update_syslog_config.sh",
     "devops:update:service": "./devops/scripts/update_service.sh",
     "database": "./database/run.sh"
