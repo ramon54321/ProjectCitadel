@@ -1,7 +1,8 @@
 import * as React from 'react'
+import { Store } from './App'
 
 export interface DashboardProps {
-
+  store: Store
 }
 
 class Dashboard extends React.Component<DashboardProps> {

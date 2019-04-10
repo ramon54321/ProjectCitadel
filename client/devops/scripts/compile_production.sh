@@ -9,7 +9,7 @@ npm run clean
 
 # Compile with Production config
 webpack --mode production
-tsc
+tsc -p tsconfig-sw.json
 
 # Copy specific files
 cp src/app.html dist/app.html

@@ -7,10 +7,13 @@
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "inlineSourceMap": true,
+    "sourceMap": true,
     "strictNullChecks": true,
     "target": "es5",
     "experimentalDecorators": true,
     "lib": ["dom", "es2015"],
-  }
+  },
+  "files": [
+    "src/serviceWorker.ts",
+  ]
 }

@@ -8,8 +8,7 @@ npm run lint
 npm run clean
 
 # Compile with Development config
-webpack --mode development
-tsc
+webpack --mode development && tsc -p tsconfig-sw.json
 
 # Copy specific files
 cp src/app.html dist/app.html

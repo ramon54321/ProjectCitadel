@@ -11,7 +11,7 @@ set -e
 npm run clean
 
 # Build local production
-npm run production:compile
+npm run compile:production
 
 # Stop Service
 ssh 35.228.19.40 'sudo systemctl stop citadel' 

@@ -2,12 +2,20 @@
   "license": "MIT",
   "scripts": {
     "compile": "./devops/scripts/compile_development.sh",
+    "compile:production": "./devops/scripts/compile_production.sh",
     "lint": "tslint -t stylish -p tsconfig.json",
     "clean": "rm -rf ./dist/*",
-    "production:compile": "./devops/scripts/compile_production.sh",
+    "watch": "chokidar 'src/**/*.{ts,tsx}' -c 'npm run compile'",
     "devops:deploy": "./devops/scripts/deploy.sh"
   },
   "devDependencies": {
+    "@types/react": "^16.8.12",
+    "@types/react-dom": "^16.8.3",
+    "axios": "^0.18.0",
+    "chokidar": "^2.1.5",
+    "chokidar-cli": "^1.2.2",
+    "mobx": "^5.9.4",
+    "mobx-react": "^5.4.3",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-router-dom": "^4.3.1",
