@@ -18,10 +18,6 @@ pageRouter.use((_req, _res, next) => {
   next()
 })
 
-pageRouter.get('/hello', (_req, res, _next) => {
-  res.send('Hello!')
-})
-
 pageRouter.get('/favicon.ico', (_req, res, _next) => {
   res.sendFile(path.resolve('../client/dist/favicon.ico'))
 })

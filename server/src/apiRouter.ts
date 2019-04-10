@@ -1,7 +1,7 @@
 import * as express from 'express'
 import { logAPI } from './logger/logger'
 import { retrieveUsersByEmail, createUser } from './database/users'
-import { createSession, deleteSessionByUser, retrieveSessionByToken } from './database/sessions'
+import { createSession, deleteSessionsByUser, retrieveSessionByToken } from './database/sessions'
 import { verify } from 'jsonwebtoken'
 import { generateSalt, getPasswordHash } from './utils'
 
@@ -34,7 +34,7 @@ apiRouter.post('/signin', async (req, res) => {
   })
 })
 
-apiRouter.post('/user', async (req, res) => {
+apiRouter.post('/signup', async (req, res) => {
   try {
     const email = req.body.email
     const salt = generateSalt()
@@ -66,9 +66,13 @@ apiRouter.use('/*', async (req, res, next) => {
   console.log('Secure Route')
   try {
     const token = req.headers.token as string
+    console.log('token', token)
+    const tokenInfo = verify(token, 'serversecret1')
+    req['tokenInfo'] = tokenInfo
     await retrieveSessionByToken(token)
     return next()
   } catch (err) {
+    console.log(err)
     return res.status(403).json({
       status: 'error',
       error: 'unauthorized',
@@ -78,14 +82,8 @@ apiRouter.use('/*', async (req, res, next) => {
 
 apiRouter.post('/signout', async (req, res) => {
   try {
-    const users = await retrieveUsersByEmail(req.body.email)
-    if (!users[0]) {
-      return res.status(400).json({
-        status: 'error',
-        error: 'sign_out_error',
-      })
-    }
-    await deleteSessionByUser(users[0])
+    const users = await retrieveUsersByEmail(req['tokenInfo'].email)
+    await deleteSessionsByUser(users[0])
     return res.json({
       status: 'success',
     })
@@ -99,9 +97,7 @@ apiRouter.post('/signout', async (req, res) => {
 
 apiRouter.get('/user', async (req, res) => {
   try {
-    const token = req.headers.token as string
-    const tokenInfo = verify(token, 'serversecret1')
-    return res.json(tokenInfo)
+    return res.json(req['tokenInfo'])
   } catch (err) {
     return res.status(400).json({
       status: 'error',

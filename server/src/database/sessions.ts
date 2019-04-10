@@ -52,7 +52,7 @@ export function deleteSessionByToken(token: string): Promise<ResponseStatus> {
     })
 }
 
-export function deleteSessionByUser(user: AppUser): Promise<ResponseStatus> {
+export function deleteSessionsByUser(user: AppUser): Promise<ResponseStatus> {
   const query = `DELETE FROM user_session WHERE user_session.app_user_id = $1`
   return db
     .query(query, [user.id])
